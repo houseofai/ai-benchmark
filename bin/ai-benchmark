@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import ai_benchmark
 benchmark = ai_benchmark.AIBenchmark()
