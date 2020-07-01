@@ -9,4 +9,4 @@ RUN git clone https://github.com/OdysseeT/ai-benchmark.git
 
 WORKDIR ai-benchmark
 RUN pip install -e .
-RUN chmod a+x bin/ai-benchmark
+#RUN chmod a+x bin/ai-benchmark
