@@ -2,4 +2,4 @@
 
 import ai_benchmark
 benchmark = ai_benchmark.AIBenchmark()
-results = benchmark.run_training()
+results = benchmark.run_training(precision="high")
