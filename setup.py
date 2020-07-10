@@ -17,7 +17,6 @@ setuptools.setup(
     version="0.1.2",
     author="Andrey Ignatov",
     author_email="andrey@vision.ee.ethz.ch",
-    scripts=['bin/ai-benchmark'],
     include_package_data=True,
     description="AI Benchmark is an open source python library for evaluating AI performance of various "
                 "hardware platforms, including CPUs, GPUs and TPUs.",

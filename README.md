@@ -26,5 +26,5 @@ For more information and results, please visit the project website: [http://ai-b
 
 #### Run Instructions </br>
 
-Only for training:
-```sudo docker run --gpus all -it odyssee/ai-benchmark:latest /bin/sh -c "./bin/ai-benchmark"```
+```sudo docker build -t odyssee/ai-benchmark:latest"```
+```sudo docker run --gpus all -it odyssee/ai-benchmark:latest"```
