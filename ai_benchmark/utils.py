@@ -518,7 +518,7 @@ def geometrical_mean(results):
     return results.prod() ** (1.0 / len(results))
 
 
-def run_tests(training, inference, micro, verbose, use_CPU, precision, _type, start_dir):
+def run_tests(training, inference, micro, verbose, use_CPU, precision, _type, start_dir, batch_mul):
 
     testInfo = TestInfo(_type, precision, use_CPU, verbose)
 
@@ -526,7 +526,7 @@ def run_tests(training, inference, micro, verbose, use_CPU, precision, _type, st
         printTestInfo(testInfo)
         printTestStart()
 
-    benchmark_tests = TestConstructor().getTests()
+    benchmark_tests = TestConstructor().getTests(batch_mul)
     benchmark_results = BenchmarkResults()
     public_results = PublicResults()
     os.chdir(path.dirname(__file__))
@@ -541,7 +541,13 @@ def run_tests(training, inference, micro, verbose, use_CPU, precision, _type, st
         else:
             config = tf.ConfigProto(device_count={'GPU': 0})
     else:
-        config = None
+        #config = None
+        if testInfo.tf_ver_2:
+            config = tf.compat.v1.ConfigProto()
+        else:
+            config = tf.ConfigProto()
+        config.gpu_options.visible_device_list= '0,1'
+        print("##### Config Done")
 
     for test in benchmark_tests:
 
